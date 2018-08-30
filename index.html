@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Added a link to Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
+
+    <title>Trivia Game</title>
+</head>
+
+<body>
+    <div class="jumbotron text-center">
+        <h1 class="display-4">Jumbo heading</h1>
+        <p class="lead">Jumbo helper text</p>
+    </div>
+
+    <div class="container">
+        <!-- Div containing timer -->
+
+        <div class="row">
+            <div class="col-12 col" id="timer">30</div>
+        </div>
+        <div class="row" id="trivia">
+
+            <!-- Div containing score -->
+
+            <!-- Div containing questions -->
+            <div class="col-12" id="question"></div>
+
+            <!-- Div containing answers -->
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-12 col-md-6 span6 answer" id="a1">
+                    </div>
+                    <div class="col-12 col-md-6 span6 answer" id="a2">
+                    </div>
+                    <div class="col-12 col-md-6 span6 answer" id="a3">
+                    </div>
+                    <div class="col-12 col-md-6 span6 answer" id="a4">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Div containing Correct Answer -->
+
+        <div class="row">
+            <div class="col-12 col">
+                <button id="start">
+                    <h2>Start</h2>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+
+</html>
