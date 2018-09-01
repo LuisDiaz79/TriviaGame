@@ -8,6 +8,7 @@
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet"> 
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -17,34 +18,55 @@
 </head>
 
 <body>
-    <div class="jumbotron text-center">
-        <h1 class="display-4">Jumbo heading</h1>
-        <p class="lead">Jumbo helper text</p>
-    </div>
-
     <div class="container">
-        <!-- Div containing timer -->
 
-        <div class="row">
-            <div class="col-12 col" id="timer">30</div>
+        <div class="row align-bottom">
+            <div class="col-12 col-md-3 align-bottom score">
+                SCORE
+            </div>
+            <div class="col-12 col-md-6">
+                    <img src="./assets/images/logo.png" class="mainheader">    
+            </div>
+            <div class="col-12 col-md-3 align-bottom">
+                <div class="col-12 col" id="timer" val="30" style="display: none;">
+                </div>
+                <div id="cont" data-pct="30">
+                    <svg id="svg" width="200" height="200" viewPort="0 0 100 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                        <circle r="45" cx="100" cy="100" fill="transparent" stroke-dasharray="282.725" stroke-dashoffset="0"></circle>
+                        <circle id="bar" r="45" cx="100" cy="100" fill="transparent" stroke-dasharray="282.725" stroke-dashoffset="0"></circle>
+                    </svg>
+                </div>
+            </div>
         </div>
-        <div class="row" id="trivia">
+    </div>
+    
+    <div class="container">
+
+        <div class="row " id="trivia" style="display: none;">
 
             <!-- Div containing score -->
 
             <!-- Div containing questions -->
-            <div class="col-12" id="question"></div>
+            <div class="col-12 question" id="question"></div>
 
             <!-- Div containing answers -->
             <div class="col-12">
                 <div class="row">
-                    <div class="col-12 col-md-6 span6 answer" id="a1">
+                    <div class="col-12 col-md-6 span6 " >
+                        <div id="a1" class="answer">
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6 span6 answer" id="a2">
+                    <div class="col-12 col-md-6 span6">
+                        <div id="a2" class="answer">
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6 span6 answer" id="a3">
+                    <div class="col-12 col-md-6 span6">
+                        <div id="a3" class="answer">
+                        </div>
                     </div>
-                    <div class="col-12 col-md-6 span6 answer" id="a4">
+                    <div class="col-12 col-md-6 span6">
+                        <div id="a4" class="answer">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -52,13 +74,14 @@
         <!-- Div containing Correct Answer -->
 
         <div class="row">
-            <div class="col-12 col">
-                <button id="start">
+            <div class="col-12 col" style="padding: 20px">
+                <button class="btn btn-secondary" id="start">
                     <h2>Start</h2>
                 </button>
             </div>
         </div>
     </div>
+    <script src="assets/js/questions.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
 
