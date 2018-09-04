@@ -1,36 +1,42 @@
 
 var $startBtn = $("#start");
+var $finishBtn = $("#finish");
 var $timer = $('#timer');
 var $question = $('#question');
 var $answers = $('.answer');
 var $trivia = $('#trivia');
+var $totalScoreBoard = $('#totalscoreboard');
 var $rAnswer;
-
+var $scoreselected;
 
 var gameRunning = false;
 var ansRunning = false;
 var questionSelected = 0;
 var questionTimer;
 var ansTimer;
+var win = 0;
+var lose = 0;
 
 
 
 
 $startBtn.click(startSlideshow);
 $answers.click(checkAnswer);
+$finishBtn.click(finishGame);
 
 
 
 function startSlideshow() {
 
     // TODO: Use showImage to hold the setInterval to run nextImage.
-    console.log('IN');
-
     if (!gameRunning) {
         $trivia.addClass("trivia");
+        $scoreselected = $("#sc"+win);
+        $scoreselected.addClass("scoreselected");
         $(this).hide();
         gameRunning = true;
         unsortTrivia(questions);
+
         nextQuestion(questionSelected);
     }
 };
@@ -39,9 +45,9 @@ function modTimer() {
     var time = parseInt($timer.text());
     time--;
     $timer.text(parseInt(time));
-    console.log(time);
     counter(time, 30);
     if (time < 0) {
+        lose++;
         showAnswer();
     }
 };
@@ -51,7 +57,6 @@ function modAnsTimer() {
     $timer.text(parseInt(time));
     counter(time, 15);
     ansRunning = true;
-    console.log(time);
     if (time < 0) {
         ansRunning = false;
         questionSelected++;
@@ -64,9 +69,6 @@ function modAnsTimer() {
 
 function nextQuestion(num) {
 
-    console.log(questions[num]);
-
-
     $timer.text(30);
     clearInterval(ansTimer);
         
@@ -75,7 +77,6 @@ function nextQuestion(num) {
         var rAnswer = questions[num].correct.substr(1, questions[num].correct.length); 
         rAnswer = questions[num].a[rAnswer-1];
         unsortTrivia(questions[num].a);
-        console.log(questions[num]);
         
         if(questions[num].a[0] == rAnswer){
             questions[num].correct = "a1";
@@ -94,19 +95,24 @@ function nextQuestion(num) {
     
         questionTimer = setInterval(modTimer, 1000);
         $question.text(questions[num].q);
+    }else{
+        showScore();
     }
 
 };
 
 function checkAnswer() {
-    alert($(this).attr("id"));
     var ans = $(this).attr("id");
     if(!ansRunning){
         if (ans === questions[questionSelected].correct && questionTimer > 0) {
-            alert(">>>>>>>>>>>>>");
+            $scoreselected.removeClass("scoreselected");
+            win++;
+            $scoreselected = $("#sc"+win);
+            $scoreselected.addClass("scoreselected");
             showAnswer();
             
         }else{
+            lose++;
             $(this).addClass("wanswer").delay( 800 );
             showAnswer();
         }
@@ -124,9 +130,6 @@ function showAnswer() {
 
 function unsortTrivia(array) {
 
-    console.log(array);
-
-
     var currentIndex = array.length, temporaryValue, randomIndex;
 
     // While there remain elements to shuffle...
@@ -141,6 +144,28 @@ function unsortTrivia(array) {
         array[currentIndex] = array[randomIndex];
         array[randomIndex] = temporaryValue;
     }
-    console.log(array);
 
+}
+
+function showScore(){
+    $trivia.removeClass('trivia');
+    $startBtn.show();
+    $totalScoreBoard.addClass('totalscoreboard');
+    $("#totalscore").text($scoreselected.text());
+    $("#win").text(win);
+    $("#lose").text(lose);
+}
+
+function finishGame(){
+    win =0;
+    lose=0;
+    questionSelected = 0;
+    gameRunning = false;
+    $totalScoreBoard.removeClass('totalscoreboard');
+    $scoreselected.removeClass("scoreselected");
+    $scoreselected = null;
+    $startBtn.show();
+    $timer.text(30);
+    clearInterval(questionTimer);
+    clearInterval(ansTimer);
 }

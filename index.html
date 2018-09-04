@@ -7,8 +7,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!-- Added a link to Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Archivo+Black" rel="stylesheet"> 
+    <link rel="stylesheet" href="./assets/css/style.css">
+    
 
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
@@ -21,8 +22,19 @@
     <div class="container">
 
         <div class="row align-bottom">
-            <div class="col-12 col-md-3 align-bottom score">
-                SCORE
+            <div class="col-12 col-md-3 align-bottom ">
+                <div class="row scoreboar">
+                    <div class="col-12 score" id="sc9">10000</div>
+                    <div class="col-12 score" id="sc8">8000</div>
+                    <div class="col-12 score" id="sc7">4000</div>
+                    <div class="col-12 score" id="sc6">2000</div>
+                    <div class="col-12 score" id="sc5">1000</div>
+                    <div class="col-12 score" id="sc4">500</div>
+                    <div class="col-12 score" id="sc3">300</div>
+                    <div class="col-12 score" id="sc2">200</div>
+                    <div class="col-12 score" id="sc1">100</div>
+                    <div class="col-12 score" id="sc0">0</div>
+                </div>
             </div>
             <div class="col-12 col-md-6">
                     <img src="./assets/images/logo.png" class="mainheader">    
@@ -73,6 +85,31 @@
         </div>
         <!-- Div containing Correct Answer -->
 
+        <div class="row" id="totalscoreboard" style="display: none;">
+            <div class="col-12">
+                <h2>TOTAL</h2>
+            </div>
+            <div class="col-12">
+                <h2 id="totalscore"></h2>
+            </div>
+            <div class="col-12 col-md-6">
+                <h3>WIN</h3>
+            </div>
+            <div class="col-12 col-md-4 span4 text-right">
+                <h3 id="win"></h3>
+            </div>
+            <div class="col-12 col-md-6 span6">
+                <h3>LOSE</h3>
+            </div>
+            <div class="col-12 col-md-4 span4 text-right">
+                <h3 id="lose"></h3>
+            </div>
+            <div class="col-12 col" style="padding: 20px">
+                <button class="btn btn-secondary" id="finish">
+                    <h2>Finish</h2>
+                </button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-12 col" style="padding: 20px">
                 <button class="btn btn-secondary" id="start">
@@ -81,6 +118,13 @@
             </div>
         </div>
     </div>
+    <footer class="page-footer font-small blue">
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                © 2018 Copyright: Luis E. Diaz
+            </div>
+            <!-- Copyright -->
+    </footer>
     <script src="assets/js/questions.js"></script>
     <script src="assets/js/main.js"></script>
 </body>
