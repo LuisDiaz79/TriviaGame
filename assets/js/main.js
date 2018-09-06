@@ -55,7 +55,7 @@ function modAnsTimer() {
     var time = parseInt($timer.text());
     time--;
     $timer.text(parseInt(time));
-    counter(time, 15);
+    counter(time, 10);
     ansRunning = true;
     if (time < 0) {
         ansRunning = false;
@@ -122,7 +122,7 @@ function checkAnswer() {
 
 function showAnswer() {
     clearInterval(questionTimer);
-    $timer.text(2);
+    $timer.text(10);
     ansTimer = setInterval(modAnsTimer, 1000);
     $rAnswer.addClass("ranswer");
 };
