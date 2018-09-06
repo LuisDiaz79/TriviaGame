@@ -76,7 +76,7 @@ body{
     padding: 10px;
 }
 .totalscoreboard{
-    display: inline !important;
+    display: inline-flex !important;
     font-family: 'Archivo Black', sans-serif;
     padding: 10px 0;
     border: 2px solid #cea349;

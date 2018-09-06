@@ -122,7 +122,7 @@ function checkAnswer() {
 
 function showAnswer() {
     clearInterval(questionTimer);
-    $timer.text(15);
+    $timer.text(2);
     ansTimer = setInterval(modAnsTimer, 1000);
     $rAnswer.addClass("ranswer");
 };
